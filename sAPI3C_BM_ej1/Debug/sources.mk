@@ -1,0 +1,26 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+OBJ_SRCS := 
+S_SRCS := 
+ASM_SRCS := 
+C_SRCS := 
+S_UPPER_SRCS := 
+O_SRCS := 
+EXECUTABLES := 
+OBJS := 
+S_UPPER_DEPS := 
+C_DEPS := 
+
+# Every subdirectory with source files must be described here
+SUBDIRS := \
+Drivers/STM32F4xx_HAL_Driver/Src \
+Src \
+lib/sapi3c/abstract_modules/src \
+lib/sapi3c/base/src \
+lib/sapi3c/board/src \
+lib/sapi3c/soc/core/src \
+lib/sapi3c/soc/peripherals/src \
+startup \
+
