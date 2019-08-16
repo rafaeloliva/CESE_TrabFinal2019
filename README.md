@@ -13,3 +13,5 @@ Al descargar del presente repositorio, en los ejemplos aparecen dos archivos .pr
 Se debe asociar dichos archivos al AC6/SystemWorkbench previamente instalado. Luego dar doble click en 
 cualquiera de ambos .project (del ej01 o del ej02) y elegir un directorio de trabajo (Workspace) de AC6
 para instalarlos.
+
+Se agrega /docum con Diagrama CL3, Detalle construccion ejemplos y Compilacion con AC6
