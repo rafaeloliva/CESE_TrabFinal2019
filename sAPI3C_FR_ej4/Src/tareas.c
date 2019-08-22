@@ -30,6 +30,7 @@ TaskHandle_t xTaskHandlePrintErr  = NULL;   // Task 5 PrintError
 TaskHandle_t xTaskHandleHeartBeat = NULL;   // Task 6 OLED Heartbeat 21.4.19
 TaskHandle_t xTaskHandleUart6CmdH = NULL;   // Task 7 Uart6 CmdHandling 21.4.19
 TaskHandle_t xTaskHandleUart6CmdP = NULL;   // Task 8 Uart6 CmdProcess 21.4.19
+TaskHandle_t xTaskHandleDisplayLCD = NULL;   // Task 9 Display LCDhandle 21.8.2019
 
 //Queue handle
 QueueHandle_t packet_queue       = NULL;   // ok packets queue handle
@@ -470,6 +471,66 @@ void vTask_uart6_cmd_processing(void *params)
 	}
 }
 
+// Task 9 vTask_DisplayLCD - maneja pantallas
+void vTask_DisplayLCD(void *params)
+{
+bool_t valor = 0;
+#define CTR_DMAX 100
+int16_t winddir = 0;
+uint8_t disp_status = 0;
+uint16_t disp_counter = CTR_DMAX;
+char task_msg[100];
+#ifdef DEBUG_VERBOSE
+printmsg("\n\rTsk9");
+#endif
+vTaskDelay(20);
+	while(1)
+	{
+		xSemaphoreTake(xMutex, portMAX_DELAY);
+		winddir = sensor_val.Vs_OWDir;
+		xSemaphoreGive(xMutex);
+
+		valor = !gpioRead(KBD_IZQ);  // Sin debounce
+		if(valor) {  //F1
+			WDir_Screen(task_msg, winddir);    // Definido en general.c
+			disp_counter = CTR_DMAX;
+			disp_status = 1;
+		}
+		valor = !gpioRead(KBD_ARR);
+		if(valor) {  //F2
+			displaycl3_Screen(SCREEN2);
+			disp_counter = CTR_DMAX;
+			disp_status = 2;
+		}
+		valor = !gpioRead(KBD_ABJ);
+		if(valor) {   // F3
+			displaycl3_Screen(SCREEN3);
+			disp_counter = CTR_DMAX;
+			disp_status = 3;
+		}
+		valor = !gpioRead(KBD_DER);
+		if(valor) { // F4
+			displaycl3_Screen(SCREEN4);
+			disp_counter = CTR_DMAX;
+			disp_status = 4;
+		}
+		if (disp_counter) { // If #1
+			disp_counter--;
+			switch(disp_status){
+			case 1:
+				WDir_Update(task_msg, winddir);
+				break;
+			default:
+				break;
+			}   // end switch
+			if (disp_counter == 0)
+				{
+				displaycl3_Screen(WELCOME);
+				}
+		} // end if #1
+		vTaskDelay(pdMS_TO_TICKS(200)); //
+	}
+}
   
 
 

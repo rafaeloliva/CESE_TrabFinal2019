@@ -247,7 +247,7 @@ static void Screen1(void)
 {
     // F1 - Green Screen - IZQ
     ILI9341_FillScreen(ILI9341_CYAN);
-	ILI9341_WriteString(20, 4*10+4*18, "Tecla F1 pres", Font_16x26, ILI9341_BLACK, ILI9341_CYAN ); // Agregado 16.8.2019
+	ILI9341_WriteString(20, 4*10+4*18, "F1 Dir.Viento", Font_16x26, ILI9341_BLACK, ILI9341_CYAN ); // Agregado 16.8.2019
 	HAL_Delay(1000);
 }
 
@@ -255,14 +255,14 @@ static void Screen2(void)
 {
     // F2 - RED Screen - ARRIBA
     ILI9341_FillScreen(ILI9341_RED);
-	ILI9341_WriteString(20, 4*10+4*18, "Tecla F2 pres", Font_16x26, ILI9341_BLACK, ILI9341_RED); // Agregado 16.8.2019
+	ILI9341_WriteString(20, 4*10+4*18, "F2 Vel.Viento", Font_16x26, ILI9341_BLACK, ILI9341_RED); // Agregado 16.8.2019
 	HAL_Delay(1000);
 }
 static void Screen3(void)
 {
     // F3 - BLUE Screen - ABJ
     ILI9341_FillScreen(ILI9341_BLUE);
-    ILI9341_WriteString(20, 4*10+4*18, "Tecla F3 pres", Font_16x26, ILI9341_BLACK, ILI9341_BLUE); // Agregado 16.8.2019
+    ILI9341_WriteString(10, 4*10+4*18, "F3 Temperatura", Font_16x26, ILI9341_BLACK, ILI9341_BLUE); // Agregado 16.8.2019
                                      /* "  Presione F1 a F4  " */
 	HAL_Delay(1000);
 }
@@ -270,7 +270,7 @@ static void Screen4(void)
 {
 	// F4 - WHITE Screen - DER
     ILI9341_FillScreen(ILI9341_BLACK);
-	ILI9341_WriteString(20, 4*10+4*18, "Tecla F4 pres", Font_16x26, ILI9341_WHITE, ILI9341_BLACK); // Agregado 16.8.2019
+	ILI9341_WriteString(10, 4*10+4*18, "F4 Presion.Atm", Font_16x26, ILI9341_WHITE, ILI9341_BLACK); // Agregado 16.8.2019
 	HAL_Delay(1000);
 	
 }

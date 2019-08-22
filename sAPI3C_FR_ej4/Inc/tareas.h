@@ -10,7 +10,7 @@
   ******************************************************************************
   * @author  E.Pernia / adapted by R.Oliva
   * @brief   Header for Tareas.c - Tests FreeRTOS with sApi3c for CL3
-  *          rev 12.8.19
+  *          rev 21.8.19
   *
  **/  
   
@@ -41,6 +41,7 @@ extern TaskHandle_t xTaskHandlePrintErr;   // Task 5 PrintError
 extern TaskHandle_t xTaskHandleHeartBeat;  // Task 6 OLED Heartbeat 21.4.19
 extern TaskHandle_t xTaskHandleUart6CmdH;  // Task 7 Uart6 CmdHandling 21.4.19
 extern TaskHandle_t xTaskHandleUart6CmdP;  // Task 8 Uart6 CmdProcess 21.4.19
+extern TaskHandle_t xTaskHandleDisplayLCD; // Task 9 Display LCDhandle 21.8.2019
 
 //Queue handle
 extern QueueHandle_t packet_queue;         // ok packets queue handle
@@ -69,6 +70,7 @@ void vTask_PrintError(void *params);           // Task 5 = Imprimeerror
 void vTask_HeartBeat(void *params);            // Task 6 = OLED Heartbeat 21.4.19
 void vTask_uart6_cmd_handling(void *params);   // Task 7 = Terminal UART6 Cmd_Handling
 void vTask_uart6_cmd_processing(void *params); // Task 8 = Terminal UART6 proceso comandos
+void vTask_DisplayLCD(void *params);           // Task 9 = Display LCD 21.8.2019
 
 #ifdef __cplusplus
 }

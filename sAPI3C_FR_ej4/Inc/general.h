@@ -160,6 +160,10 @@ void print_Uart6_messageCmd1(char *task_msg);
 void QueueAndSemCreateAll (void);
 void TaskCreateAll(void);
 
+// Added for CL3 _LCD implementation 21.8.2019
+void WDir_Screen(char *task_msg, int16_t wdir);    // Definido en general.c
+void WDir_Update(char *task_msg, int16_t wdir);    // only update WDIR value..
+
 /* UART_LL_6 RTC function prototypes -----------------------------------------------*/
 // #define RTC_FRTOS_EN
 #ifdef RTC_FRTOS_EN

@@ -182,6 +182,27 @@ void getArguments(uint8_t *buffer)
 
 }
 
+// Added 21.8.2019 for Final Display of WDIR--
+void WDir_Screen(char *task_msg, int16_t wdir){   
+
+    // Check fonts
+    ILI9341_FillScreen(ILI9341_BLACK);
+	/*          x_coord, y_coord, *str                       Font       Color        BGColor      */
+
+    ILI9341_WriteString(10, 6*10, "Lecturas METEO - CL3", Font_11x18, ILI9341_GREEN, ILI9341_BLACK);
+    ILI9341_WriteString(10, 4*10+4*18, "F1-Dir.Viento", Font_16x26, ILI9341_BLUE, ILI9341_BLACK);
+    sprintf( task_msg,"WDirx10=%d", wdir);
+    ILI9341_WriteString(5, 4*10+6*18, task_msg, Font_16x26, ILI9341_BLUE, ILI9341_BLACK);
+
+}
+
+// Added 21.8.2019 for Final Display of WDIR--
+void WDir_Update(char *task_msg, int16_t wdir){
+    sprintf( task_msg," WDirx10=%d", wdir);
+    ILI9341_WriteString(5, 4*10+6*18, task_msg, Font_16x26, ILI9341_BLUE, ILI9341_BLACK);
+
+}
+
 
 // Taken from LL_UART - Requires RXNE IT Enable
 // Testing
@@ -269,6 +290,10 @@ void TaskCreateAll(void){
 
 		//create task-8 U6 cmd process 25.4.Subimos Stack
 		xTaskCreate(vTask_uart6_cmd_processing,"TASK8-U6CMD-PROCESS",700,NULL,2,&xTaskHandleUart6CmdP);
+		
+		// TaskHandle_t xTaskHandleDisplayLCD -  Task 9 Display Handle 21.8.2019
+   	    xTaskCreate(vTask_DisplayLCD,"TASK_DISPLAY-LCD",500,NULL,2,&xTaskHandleDisplayLCD);
+
 }
 
 
