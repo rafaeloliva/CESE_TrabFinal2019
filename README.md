@@ -4,7 +4,8 @@ CESE - Trabajo Final Especializacion Rafael Oliva - Firmware para Registrador In
 Ejemplos de uso biblioteca /lib/sapi3c (para placa prototipo CL3 / STM32F4) basados en sAPI  (de Mg. Ing. Eric Pernia) para CIAA.
 - Ej 01 / Simple blinky 
 - Ej 02 / Lectura de Teclado y mensaje por UART Terminal
-- Ej 03 / 
+- Ej 03 / Incorpora Teclado + Display ILI9341 y PDF explic Ensayo
+- Ej 04 / 
 
 Para compilar y modificar los ejemplos se requiere instalar la herramienta libre AC6/System Workbench desde 
 http://www.openstm32.org/System%2BWorkbench%2Bfor%2BSTM32
