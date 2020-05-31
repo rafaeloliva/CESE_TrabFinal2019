@@ -5,7 +5,7 @@ Ejemplos de uso biblioteca /lib/sapi3c (para placa prototipo CL3 / STM32F4) basa
 - Ej 01 / Simple blinky 
 - Ej 02 / Lectura de Teclado y mensaje por UART Terminal
 - Ej 03 / Incorpora Teclado + Display ILI9341 y PDF explic Ensayo
-- Ej 04 / 
+- Ej 04 / Multitarea FreeRTOS con Lectura Veleta desde METEO y 4 pantallas controladas por teclas F1-F4
 
 Para compilar y modificar los ejemplos se requiere instalar la herramienta libre AC6/System Workbench desde 
 http://www.openstm32.org/System%2BWorkbench%2Bfor%2BSTM32
